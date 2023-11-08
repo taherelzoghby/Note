@@ -1,0 +1,20 @@
+{
+  "notes": "Notes",
+  "you_dont_have_any_notes": "You Don't Have Any Notes",
+  "search": "Search...",
+  "add_note": "Add Note",
+  "title": "Title",
+  "content": "Content",
+  "edit_note": "Edit Note",
+  "areYouSureDeleteAllNotes": "Are you sure you want to delete all notes?",
+  "areYouSureDeleteNote": "Are you sure you want to delete Note?",
+  "areYouSureChangeLang": "Are you sure you want to Change Lang?",
+  "deleteAllNotes": "Delete All Notes",
+  "successDeleted": "All Notes Deleted Successfully",
+  "somethingError": "Something Error occurred",
+  "AddedSucccess": "Successfully",
+  "delete": "Delete",
+  "yes": "Yes",
+  "no": "No",
+  "lang": "عربي"
+}

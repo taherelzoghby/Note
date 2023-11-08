@@ -1,0 +1,20 @@
+{
+  "notes": "مذكرات",
+  "you_dont_have_any_notes": "انت لا تمتلك اي مذكره",
+  "search": "بحث...",
+  "add_note": "اضافة مذكره",
+  "title": "العنوان",
+  "content": "المحتوي",
+  "edit_note": "تعديل المذكره",
+  "areYouSureDeleteAllNotes": "هل أنت متأكد أنك تريد حذف كافة الملاحظات؟",
+  "areYouSureDeleteNote": "هل أنت متأكد أنك تريد حذف الملاحظه؟",
+  "areYouSureChangeLang": "هل أنت متأكد أنك تريد تغيير اللغه؟",
+  "deleteAllNotes": "حذف كافة الملاحظات",
+  "successDeleted": "تم حذف كافة الملاحظات بنجاح",
+  "somethingError": "حدث خطأ ما",
+  "AddedSucccess": "تم الإضافة بنجاح",
+  "delete": "حذف",
+  "yes": "نعم",
+  "no": "لا",
+  "lang": "English"
+}
