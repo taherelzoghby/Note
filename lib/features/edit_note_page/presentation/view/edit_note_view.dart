@@ -4,14 +4,11 @@ import 'package:go_router/go_router.dart';
 import 'package:note_3/core/consts/app_router.dart';
 import 'package:note_3/core/consts/style.dart';
 import 'package:note_3/core/models/note.dart';
-import 'package:note_3/core/widgets/dialog.dart';
 import 'package:note_3/features/edit_note_page/presentation/view/widgets/edit_note_body.dart';
-import 'package:note_3/features/edit_note_page/presentation/view_model/delete_note_cubit/delete_note_cubit.dart';
-import 'package:note_3/features/edit_note_page/presentation/view_model/edit_note_cubit/update_note_cubit.dart';
+import 'package:note_3/features/notes_page/presentation/view_models/notes_cubit/notes_cubit.dart';
 import 'package:note_3/features/notes_page/presentation/view_models/search_cubit/search_cubit.dart';
 import 'package:note_3/generated/l10n.dart';
 
-import '../../../notes_page/presentation/view_models/get_notes_cubit/get_notes_cubit.dart';
 
 class EditNoteView extends StatelessWidget {
   const EditNoteView({super.key, required this.note});
@@ -33,11 +30,11 @@ class EditNoteView extends StatelessWidget {
             onSelected: (val) {
               if (val == 0) {
                 ///delete note
-                BlocProvider.of<DeleteNoteCubit>(context)
+                BlocProvider.of<NotesCubit>(context)
                     .deleteNote(note: note);
 
                 ///get Notes
-                BlocProvider.of<GetNotesCubit>(context).getNotes();
+                BlocProvider.of<NotesCubit>(context).getNotes();
 
                 ///go back
                 GoRouter.of(context).pushReplacement(AppGoRouter.homePath);
@@ -67,10 +64,10 @@ class EditNoteView extends StatelessWidget {
           BlocProvider.of<SearchCubit>(context).stopSearching();
 
           ///update note
-          BlocProvider.of<UpdateNoteCubit>(context).editNote(note: note);
+          BlocProvider.of<NotesCubit>(context).editNote(note: note);
 
           ///get notes
-          BlocProvider.of<GetNotesCubit>(context).getNotes();
+          BlocProvider.of<NotesCubit>(context).getNotes();
         },
         child: const Icon(Icons.done),
       ),

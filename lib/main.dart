@@ -9,17 +9,15 @@ import 'package:note_3/core/consts/strings.dart';
 import 'package:note_3/core/consts/style.dart';
 import 'package:note_3/core/helper/cache_helper.dart';
 import 'package:note_3/core/services/service_locator.dart';
-import 'package:note_3/core/widgets/loading_widget.dart';
+import 'package:note_3/features/add_note_page/data/repos/add_note_page_repo/add_note_repo_imple.dart';
 import 'package:note_3/features/edit_note_page/data/repos/edit_note_repo/edit_note_repo_imple.dart';
-import 'package:note_3/features/edit_note_page/presentation/view_model/delete_note_cubit/delete_note_cubit.dart';
 import 'package:note_3/features/notes_page/data/repos/notes_repo_impl.dart';
 import 'package:note_3/features/notes_page/presentation/view_models/chaneg_lang_cubit/change_lanuage_cubit.dart';
-import 'package:note_3/features/notes_page/presentation/view_models/get_notes_cubit/get_notes_cubit.dart';
+import 'package:note_3/features/notes_page/presentation/view_models/notes_cubit/notes_cubit.dart';
 import 'package:note_3/features/notes_page/presentation/view_models/search_cubit/search_cubit.dart';
 import 'package:note_3/generated/l10n.dart';
 import 'package:note_3/observer_cubit.dart';
 
-import 'features/notes_page/presentation/view_models/delete_all_notes_cubit/delete_all_notes_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,8 +42,10 @@ class MyApp extends StatelessWidget {
       providers: [
         ///get all notes cubit
         BlocProvider(
-          create: (context) => GetNotesCubit(
+          create: (context) => NotesCubit(
             notesRepo: getIt.get<NotesRepoImplementation>(),
+            editNoteRepo: getIt.get<EditNoteRepoImplementation>(),
+            addNotePageRepo: getIt.get<AddNoteRepoImplementation>(),
           ),
         ),
 
@@ -54,23 +54,10 @@ class MyApp extends StatelessWidget {
           create: (context) => SearchCubit(),
         ),
 
-        ///delete note cubit
-        BlocProvider(
-          create: (context) => DeleteNoteCubit(
-            editNoteRepo: getIt.get<EditNoteRepoImplementation>(),
-          ),
-        ),
-
-        ///delete all notes cubit
-        BlocProvider(
-          create: (context) => DeleteAllNotesCubit(
-            notesRepo: getIt.get<NotesRepoImplementation>(),
-          ),
-        ),
-
         ///update language cubit
         BlocProvider(
-            create: (context) => ChangeLanuageCubit(const Locale('en'))),
+          create: (context) => ChangeLanuageCubit(const Locale('en')),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(393, 851),

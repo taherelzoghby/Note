@@ -6,7 +6,7 @@ import 'package:note_3/core/consts/style.dart';
 import 'package:note_3/core/models/note.dart';
 import 'package:note_3/core/widgets/loading_widget.dart';
 import 'package:note_3/core/widgets/text_field.dart';
-import 'package:note_3/features/edit_note_page/presentation/view_model/edit_note_cubit/update_note_cubit.dart';
+import 'package:note_3/features/notes_page/presentation/view_models/notes_cubit/notes_cubit.dart';
 import 'package:note_3/generated/l10n.dart';
 
 class EditNoteBody extends StatelessWidget {
@@ -16,12 +16,12 @@ class EditNoteBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    UpdateNoteCubit bloc = BlocProvider.of<UpdateNoteCubit>(context);
-    return BlocConsumer<UpdateNoteCubit, UpdateNoteState>(
+    NotesCubit bloc = BlocProvider.of<NotesCubit>(context);
+    return BlocConsumer<NotesCubit, NotesState>(
       listener: (context, state) {
         if (state is EditNoteSuccess) {
           ///success
-          GoRouter.of(context).pop();
+          GoRouter.of(context).replace(AppGoRouter.homePath);
         } else if (state is EditNoteFailure) {
           ///failure
           GoRouter.of(context).pushReplacement(AppGoRouter.editNotePath);

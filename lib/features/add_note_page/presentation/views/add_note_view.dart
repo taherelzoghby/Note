@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:note_3/core/consts/app_router.dart';
-import 'package:note_3/features/add_note_page/presentation/view_models/add_note_cubit/add_note_cubit.dart';
 import 'package:note_3/features/add_note_page/presentation/views/widgets/add_note_body.dart';
-import 'package:note_3/features/notes_page/presentation/view_models/get_notes_cubit/get_notes_cubit.dart';
+import 'package:note_3/features/notes_page/presentation/view_models/notes_cubit/notes_cubit.dart';
 import 'package:note_3/generated/l10n.dart';
 
 class AddNoteView extends StatelessWidget {
@@ -21,9 +18,9 @@ class AddNoteView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           ///add note
-          BlocProvider.of<AddNoteCubit>(context).addNote();
+          BlocProvider.of<NotesCubit>(context).addNote();
           ///get notes
-          BlocProvider.of<GetNotesCubit>(context).getNotes();
+          BlocProvider.of<NotesCubit>(context).getNotes();
         },
         child: const Icon(Icons.done),
       ),

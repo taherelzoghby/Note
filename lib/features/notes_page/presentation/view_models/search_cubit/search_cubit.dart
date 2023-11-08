@@ -4,16 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:note_3/core/consts/app_router.dart';
-import 'package:note_3/core/consts/route.dart';
 import 'package:note_3/core/consts/style.dart';
 import 'package:note_3/core/models/note.dart';
 import 'package:note_3/core/widgets/dialog.dart';
 import 'package:note_3/core/widgets/text_field.dart';
 import 'package:note_3/features/notes_page/presentation/view_models/chaneg_lang_cubit/change_lanuage_cubit.dart';
-import 'package:note_3/features/notes_page/presentation/view_models/get_notes_cubit/get_notes_cubit.dart';
+import 'package:note_3/features/notes_page/presentation/view_models/notes_cubit/notes_cubit.dart';
 import 'package:note_3/generated/l10n.dart';
 
-import '../delete_all_notes_cubit/delete_all_notes_cubit.dart';
 
 part 'search_state.dart';
 
@@ -40,7 +38,7 @@ class SearchCubit extends Cubit<SearchState> {
 
   ///filtering note method
   _searchNote(String value, BuildContext context) {
-    List<Note> allNotes = BlocProvider.of<GetNotesCubit>(context).notes;
+    List<Note> allNotes = BlocProvider.of<NotesCubit>(context).notes;
     searchedList = allNotes
         .where((element) =>
             element.title!.startsWith(value) ||
@@ -83,11 +81,11 @@ class SearchCubit extends Cubit<SearchState> {
                     contentText: S.of(context).areYouSureDeleteAllNotes,
                     confirmFunction: () {
                       ///delete all databases
-                      BlocProvider.of<DeleteAllNotesCubit>(context)
+                      BlocProvider.of<NotesCubit>(context)
                           .deleteAllNotes();
 
                       ///get Notes
-                      BlocProvider.of<GetNotesCubit>(context).getNotes();
+                      BlocProvider.of<NotesCubit>(context).getNotes();
 
                       ///go back
                       GoRouter.of(context)

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:note_3/core/consts/app_router.dart';
-import 'package:note_3/features/notes_page/presentation/view_models/get_notes_cubit/get_notes_cubit.dart';
+import 'package:note_3/features/notes_page/presentation/view_models/notes_cubit/notes_cubit.dart';
 import 'package:note_3/features/notes_page/presentation/view_models/search_cubit/search_cubit.dart';
 import 'package:note_3/features/notes_page/presentation/views/widgets/notes_process.dart';
 import 'package:note_3/generated/l10n.dart';
@@ -19,7 +19,7 @@ class _NotesViewState extends State<NotesView> {
   @override
   void initState() {
     ///get notes
-    BlocProvider.of<GetNotesCubit>(context).getNotes();
+    BlocProvider.of<NotesCubit>(context).getNotes();
     super.initState();
   }
 
