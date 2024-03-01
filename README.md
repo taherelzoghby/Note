@@ -20,7 +20,9 @@
 Flutter<br>
 Sqlite<br>
 ## key Features
-State management: Bloc,Mvvm,repository patterns.<br>
+State management: Bloc.<br>
+Architecture Pattern : MVVM <br>
+Design Pattern : repository patterns<br>
 Local database: sqlite,shared prefernces.<br> 
 
 ## Features
