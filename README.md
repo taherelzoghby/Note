@@ -20,7 +20,9 @@
 Flutter<br>
 Sqlite<br>
 ## key Features
-State management: Bloc,Mvvm,repository patterns.<br>
+State management: Bloc.<br>
+Architecture Pattern : MVVM <br>
+Design Pattern : repository patterns<br>
 Local database: sqlite,shared prefernces.<br> 
 
 ## Features
@@ -31,4 +33,4 @@ Organization and Categorization: The app allows users to organize their notes in
 Search and Filters: Users can search for specific notes using keywords or filters to locate information efficiently, especially when dealing with a large number of notes.
 
 ## Setup
-install all packages by flutter pub get and add images in assets folder in your pc/laptop.
+install all packages by flutter pub get .
