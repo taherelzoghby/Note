@@ -32,7 +32,9 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: AppConsts.mainColor,
-      body: SplashBody(),
+      body: SafeArea(
+        child: SplashBody(),
+      ),
     );
   }
 }
